@@ -18,9 +18,9 @@ class Autor(models.Model):
 class Livro(models.Model):
     titulo  = models.CharField(max_length=200, verbose_name="Título do Livro")
     autor = models.ForeignKey(Autor, on_delete=models.CASCADE, verbose_name="Autor do Livro")
-    sinopse = models.TextField(verbose_name="Sinopse")
-    genero = models.ForeignKey(Genero, on_delete=models.SET_NULL, related_name='books', verbose_name="Gênero")
-    ano_publicacao = models.IntegerField(verbose_name="Ano de Publicação")
+    sinopse = models.TextField(verbose_name="Sinopse", default="Sem sinopse disponível")
+    genero = models.ForeignKey(Genero, on_delete=models.SET_NULL, null=True, related_name='Livros', verbose_name="Gênero")
+    ano_publicacao = models.IntegerField(verbose_name="Ano de Publicação", default=2000)
     capa_image = models.ImageField(upload_to='capas/', blank=True, null=True, verbose_name="Capa do Livro")
 
     class Meta:
