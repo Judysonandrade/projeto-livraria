@@ -1,13 +1,10 @@
-from rest_framework import viewsets
-from rest_framework.permissions import IsAdminUser
+from django.shortcuts import render, get_object_or_404
 from .models import Livro
-from .serializers import LivroSerializer
 
-class LivroViewSet(viewsets.ModelViewSet):
-    queryset = Livro.objects.all()
-    serializer_class = LivroSerializer
+def listar_livros(request):
+    livros = Livro.objects.all()
+    return render(request, 'biblioteca/listar_livros.html', {'livros': livros})
 
-    def get_permissions(self):
-        if self.action in ['list', 'retrieve']:
-            return [] 
-        return [IsAdminUser()]
+def detalhe_livro(request, pk):
+    livro = get_object_or_404(Livro, pk=pk)
+    return render(request, 'biblioteca/detalhe_livro.html', {'livro': livro})

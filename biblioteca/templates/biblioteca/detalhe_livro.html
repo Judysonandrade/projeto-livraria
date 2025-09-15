@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ livro.titulo }} - Detalhes</title>
+</head>
+<body>
+    <h1>{{ livro.titulo }}</h1>
+    <p><strong>Autor:</strong> {{ livro.autor.nome }}</p>
+    <p><strong>Gênero:</strong> {{ livro.genero.nome }}</p>
+    <p><strong>Ano de Publicação:</strong> {{ livro.ano_publicacao }}</p>
+    <p><strong>Sinopse:</strong> {{ livro.sinopse }}</p>
+    {% if livro.capa_image %}
+        <div>
+            <strong>Capa:</strong><br>
+            <img src="{{ livro.capa_image.url }}" alt="Capa do Livro" style="max-width:200px;">
+        </div>
+    {% else %}
+        <p><em>Sem capa cadastrada.</em></p>
+    {% endif %}
+    <p><a href="{% url 'biblioteca:listar_livros' %}">Voltar para lista de livros</a></p>
+</body>
+</html>

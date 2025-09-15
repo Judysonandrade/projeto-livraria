@@ -1,0 +1,18 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <title>Lista de Livros</title>
+</head>
+<body>
+    <h1>Lista de Livros</h1>
+    <ul>
+        {% for livro in livros %}
+        <li>{{ livro.titulo }} - {{ livro.autor.nome }} ({{ livro.ano_publicacao }})</li>
+        {% empty %}
+        <li>Nenhum livro cadastrado.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
