@@ -6,6 +6,7 @@ from django.contrib import admin
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('biblioteca.urls')),
+    path('', include('restaurante.urls')),
 ]
 
 if settings.DEBUG:

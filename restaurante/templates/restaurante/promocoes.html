@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <title>Promoções e Eventos</title>
+</head>
+<body>
+    <h1>Promoções e Eventos</h1>
+    {% for promo in dados %}
+        <div style="border: 1px solid #ddd; margin-bottom: 10px; padding: 10px;">
+            <h2>{{ promo.titulo }}</h2>
+            <p>{{ promo.descricao }}</p>
+            {% if promo.imagem %}
+                <img src="{{ promo.imagem.url }}" alt="{{ promo.titulo }}" style="max-width: 300px;" />
+            {% else %}
+                <p><i>Imagem não disponível</i></p>
+            {% endif %}
+        </div>
+    {% empty %}
+        <p>Não há promoções disponíveis no momento.</p>
+    {% endfor %}
+</body>
+</html>

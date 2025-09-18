@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <title>Cardápio</title>
+</head>
+<body>
+    <h1>Cardápio</h1>
+
+    <h2>Entrada</h2>
+    {% for item in itens %}
+        {% if item.tipo == 'EN' %}
+            <div style="border: 1px solid #ddd; margin-bottom: 10px; padding: 10px;">
+                <h3>{{ item.titulo }}</h3>
+                <p>{{ item.descricao }}</p>
+                {% if item.foto %}
+                    <img src="{{ item.foto.url }}" alt="{{ item.titulo }}" style="max-width: 300px;" />
+                {% else %}
+                    <p><i>Foto não disponível</i></p>
+                {% endif %}
+            </div>
+        {% endif %}
+    {% endfor %}
+
+    <h2>Prato Principal</h2>
+    {% for item in itens %}
+        {% if item.tipo == 'PR' %}
+            <div style="border: 1px solid #ddd; margin-bottom: 10px; padding: 10px;">
+                <h3>{{ item.titulo }}</h3>
+                <p>{{ item.descricao }}</p>
+                {% if item.foto %}
+                    <img src="{{ item.foto.url }}" alt="{{ item.titulo }}" style="max-width: 300px;" />
+                {% else %}
+                    <p><i>Foto não disponível</i></p>
+                {% endif %}
+            </div>
+        {% endif %}
+    {% endfor %}
+
+    <h2>Sobremesa</h2>
+    {% for item in itens %}
+        {% if item.tipo == 'SO' %}
+            <div style="border: 1px solid #ddd; margin-bottom: 10px; padding: 10px;">
+                <h3>{{ item.titulo }}</h3>
+                <p>{{ item.descricao }}</p>
+                {% if item.foto %}
+                    <img src="{{ item.foto.url }}" alt="{{ item.titulo }}" style="max-width: 300px;" />
+                {% else %}
+                    <p><i>Foto não disponível</i></p>
+                {% endif %}
+            </div>
+        {% endif %}
+    {% endfor %}
+</body>
+</html>
