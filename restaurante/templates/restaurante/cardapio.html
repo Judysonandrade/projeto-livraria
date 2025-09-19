@@ -29,6 +29,7 @@
             <div style="border: 1px solid #ddd; margin-bottom: 10px; padding: 10px;">
                 <h3>{{ item.titulo }}</h3>
                 <p>{{ item.descricao }}</p>
+                <p>Preço: R$ {{ item.preco }}</p>
                 {% if item.foto %}
                     <img src="{{ item.foto.url }}" alt="{{ item.titulo }}" style="max-width: 300px;" />
                 {% else %}
@@ -44,6 +45,7 @@
             <div style="border: 1px solid #ddd; margin-bottom: 10px; padding: 10px;">
                 <h3>{{ item.titulo }}</h3>
                 <p>{{ item.descricao }}</p>
+                <p>Preço: R$ {{ item.preco }}</p>
                 {% if item.foto %}
                     <img src="{{ item.foto.url }}" alt="{{ item.titulo }}" style="max-width: 300px;" />
                 {% else %}
