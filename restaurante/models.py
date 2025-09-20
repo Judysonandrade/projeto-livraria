@@ -61,3 +61,11 @@ class FaleConosco(models.Model):
 
     def __str__(self):
         return f"{self.nome} - {self.telefone} {self.mensagem}"
+    
+class Especialidades(models.Model):
+    titulo = models.CharField(max_length=100)
+    descricao = models.TextField()
+    tipo = models.CharField(max_length=20)
+
+    def __str__(self):
+        return f"{self.titulo} - {self.descricao} {self.tipo}"

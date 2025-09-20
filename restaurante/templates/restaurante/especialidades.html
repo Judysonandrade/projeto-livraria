@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Especialidades</title>
+</head>
+<body>
+    <h1>Especialidades</h1>
+    <div style="display: flex; flex-wrap: wrap; gap: 24px;">
+        {% for especialidade in especialidades %}
+           <div style="border: 1px solid #ddd; margin-bottom: 10px; padding: 10px;">
+            <h2>{{ especialidade.titulo }}</h2>
+            <p>{{ especialidade.descricao }}</p>
+            <p>{{ especialidade.tipo }}</p>
+
+        </div>
+        {% empty %}
+            <p>Nenhuma especialidade escontrada.</p>
+        {% endfor %}
+    </div>
+</body>
+</html>
