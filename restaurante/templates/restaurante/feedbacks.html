@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Feedback dos Clientes</title>
+</head>
+<body>
+    <h1>Feedback dos Clientes</h1>
+    <div style="display: flex; flex-wrap: wrap; gap: 24px;">
+        {% for fb in feedbacks %}
+            <div style="border: 1px solid #ddd; padding: 16px; width: 280px;">
+                {% if fb.foto %}
+                    <img src="{{ fb.foto.url }}" alt="{{ fb.nome }}" style="max-width:80px; border-radius: 50%;">
+                {% endif %}
+                <strong>{{ fb.nome }}</strong>
+                <p>{{ fb.descricao }}</p>
+            </div>
+        {% empty %}
+            <p>Nenhum feedback encontrado.</p>
+        {% endfor %}
+    </div>
+</body>
+</html>
