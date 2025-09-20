@@ -27,3 +27,18 @@ class CardapioItem(models.Model):
 
     def __str__(self):
         return self.titulo
+
+class Funcionario(models.Model):
+    nome = models.CharField(max_length=100)
+    foto = models.ImageField(upload_to='equipe/')
+    
+    def __str__(self):
+        return self.nome
+
+class FeedbackCliente(models.Model):
+    nome = models.CharField(max_length=100)
+    descricao = models.TextField("Avaliação")
+    foto = models.ImageField(upload_to='historia/', blank=True, null=True)
+
+    def __str__(self):
+        return f"{self.nome} - historia"
