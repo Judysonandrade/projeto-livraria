@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro de Usuário</title>
+</head>
+<body>
+    <h1>Cadastro de Usuário</h1>
+
+    {% if form.errors %}
+        <ul>
+            {% for field in form %}
+                {% for error in field.errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <form method="post">
+        {% csrf_token %}
+
+        <label>Usuário:</label><br>
+        {{ form.username }}<br><br>
+
+        <label>Email:</label><br>
+        {{ form.email }}<br><br>
+
+        <label>Plano:</label><br>
+        {{ form.plano }}<br><br>
+
+        <label>Senha:</label><br>
+        {{ form.password1 }}<br><br>
+
+        <label>Confirme a senha:</label><br>
+        {{ form.password2 }}<br><br>
+
+        <button type="submit">Cadastrar</button>
+    </form>
+</body>
+</html>

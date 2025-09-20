@@ -86,13 +86,14 @@ livros = [
     }
 ]
 
+# Criar livros e adicionar os gêneros (ManyToMany)
 for livro in livros:
-    Livro.objects.create(
+    livro_obj = Livro.objects.create(
         titulo=livro["titulo"],
         autor=livro["autor"],
-        genero=livro["genero"],
         ano_publicacao=livro["ano_publicacao"],
         sinopse=livro["sinopse"]
     )
+    livro_obj.generos.add(livro["genero"])
 
 print("Banco de dados povoado com dados reais com sucesso!")

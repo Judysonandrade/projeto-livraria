@@ -79,9 +79,11 @@ WSGI_APPLICATION = 'livraria.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',  # o arquivo do banco será criado na pasta do projeto
     }
 }
+
+
 
 
 

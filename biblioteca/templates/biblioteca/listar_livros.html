@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -9,7 +8,16 @@
     <h1>Lista de Livros</h1>
     <ul>
         {% for livro in livros %}
-        <li>{{ livro.titulo }} - {{ livro.autor.nome }} ({{ livro.ano_publicacao }})</li>
+        <li>
+            <strong>{{ livro.titulo }}</strong> - {{ livro.autor.nome }} ({{ livro.ano_publicacao }})<br>
+            
+            <em>Gêneros:</em>
+            {% for genero in livro.generos.all %}
+                {{ genero.nome }}{% if not forloop.last %}, {% endif %}
+            {% endfor %}<br>
+            
+            <em>Sinopse:</em> {{ livro.sinopse }}
+        </li>
         {% empty %}
         <li>Nenhum livro cadastrado.</li>
         {% endfor %}

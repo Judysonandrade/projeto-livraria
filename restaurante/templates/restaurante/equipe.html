@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Nossa Equipe</title>
+</head>
+<body>
+    <h1>Nossa Equipe</h1>
+    <div style="display: flex; flex-wrap: wrap; gap: 24px;">
+        {% for pessoa in equipe %}
+            <div style="border: 1px solid #ddd; padding: 16px; text-align: center;">
+                {% if pessoa.foto %}
+                    <img src="{{ pessoa.foto.url }}" alt="{{ pessoa.nome }}" style="max-width:120px; border-radius: 50%;">
+                {% endif %}
+                <p>{{ pessoa.nome }}</p>
+            </div>
+        {% empty %}
+            <p>Nenhum membro cadastrado.</p>
+        {% endfor %}
+    </div>
+</body>
+</html>
