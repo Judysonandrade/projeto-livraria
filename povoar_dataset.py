@@ -6,11 +6,13 @@ os.environ.setdefault("DJANGO_SETTINGS_MODULE", "livraria.settings")
 django.setup()
 
 from biblioteca.models import Autor, Genero, Livro
+from restaurante.models import Especialidades
 
 # Limpa os dados antigos (opcional)
 Livro.objects.all().delete()
 Autor.objects.all().delete()
 Genero.objects.all().delete()
+Especialidades.objects.all().delete()
 
 # Criar gêneros reais
 generos = [
@@ -95,5 +97,37 @@ for livro in livros:
         sinopse=livro["sinopse"]
     )
     livro_obj.generos.add(livro["genero"])
+
+
+especialidades = [
+    {
+        "titulo": "reservas",
+        "descricao": "Rua Ali Perto, 89 - Barra da Tijuca - Rio de Janeiro/RJ\n\nTerças a Domingos\n19h ás 23h",
+        "tipo": "reserva"
+    },
+    {
+        "titulo": "personal chef",
+        "descricao": "Desde jantares íntimos até celebrações especiais, nosso personal chef proporcionará uma experiência culinária exclusiva e sob medida.",
+        "tipo": "cardapio"
+    },
+    {
+        "titulo": "jantar temático",
+        "descricao": "Uma experiência gastronômica temática, cuidadosamente personalizada de acordo com suas preferências.",
+        "tipo": "cardapio"
+    },
+    {
+        "titulo": "buffet",
+        "descricao": "De acordo com suas preferências, voce terá uma experiência gastronômica que surpreenderá e encantará seus convidados.",
+        "tipo": "cardapio"
+    },
+      
+]
+
+for especialidade in especialidades:
+    Especialidades.objects.create(
+        titulo=especialidade["titulo"],
+        descricao=especialidade["descricao"],
+        tipo=especialidade["tipo"],
+    )
 
 print("Banco de dados povoado com dados reais com sucesso!")
