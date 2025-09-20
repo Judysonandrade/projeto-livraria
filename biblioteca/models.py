@@ -9,17 +9,22 @@ class Genero(models.Model):
         verbose_name_plural = "Gêneros"
         ordering = ['nome']
 
-    def __str__(self): return self.nome
-    
+    def __str__(self):
+        return self.nome
+
+
 class Autor(models.Model):
-    nome = models.CharField(max_length=255)
-    def __str__(self): return self.nome
+    nome = models.CharField(max_length=255, verbose_name="Nome do Autor")
+
+    def __str__(self):
+        return self.nome
+
 
 class Livro(models.Model):
-    titulo  = models.CharField(max_length=200, verbose_name="Título do Livro")
+    titulo = models.CharField(max_length=200, verbose_name="Título do Livro")
     autor = models.ForeignKey(Autor, on_delete=models.CASCADE, verbose_name="Autor do Livro")
     sinopse = models.TextField(verbose_name="Sinopse", default="Sem sinopse disponível")
-    genero = models.ForeignKey(Genero, on_delete=models.SET_NULL, null=True, related_name='Livros', verbose_name="Gênero")
+    generos = models.ManyToManyField(Genero, related_name='livros', verbose_name="Gêneros")
     ano_publicacao = models.IntegerField(verbose_name="Ano de Publicação", default=2000)
     capa_image = models.ImageField(upload_to='capas/', blank=True, null=True, verbose_name="Capa do Livro")
 
@@ -28,7 +33,5 @@ class Livro(models.Model):
         verbose_name_plural = "Livros"
         ordering = ['titulo']
 
-    def __str__(self): return self.titulo
-
-
-        
+    def __str__(self):
+        return self.titulo

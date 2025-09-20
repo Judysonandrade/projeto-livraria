@@ -2,6 +2,8 @@
 from pathlib import Path
 import os
 
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -17,6 +19,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# Static files (CSS, JavaScript, Images)
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
 
 # Application definition
 
@@ -29,6 +35,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'biblioteca',
     'restaurante',
+    'livraria',
+    'planos',
+    'usuarios',
+    
 ]
 
 MIDDLEWARE = [
@@ -40,6 +50,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+
 
 ROOT_URLCONF = 'livraria.urls'
 
@@ -66,12 +78,8 @@ WSGI_APPLICATION = 'livraria.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'livraria',
-        'USER': 'postgres',
-        'PASSWORD': '1234',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
