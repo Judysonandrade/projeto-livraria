@@ -129,13 +129,23 @@ header nav ul li {
 
 .promo-card {
     display: flex;
-    justify-content: start;
-    text-align: center;
-    align-items: center;
     flex-direction: column;
-    max-width: 360px;   
+    align-items: center;
+    text-align: center;
+    max-width: 360px;
     border: 2px solid #DED7C2;
     border-radius: 15px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.promo-card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    object-fit: cover;
+    display: block;
 }
 
 .text-h3 h3 {

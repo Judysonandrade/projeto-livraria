@@ -12,13 +12,15 @@
 <body>
     <header>
         <nav id="navbar">
-            <img src="{% static 'img/logo_lobo.png' %}" alt="">
+            <a href="{% url 'equipe' %}" class="logo">
+                <img src="{% static 'media/logo_lobo.png' %}" alt="Logo">
+            </a>
             <ul class="menu">
                 <li>{# <a href="{% url 'contato' %}">Fale Conosco</a> #}</li>
                 <li>{#<a href="{% url 'cardapio' %}">Cardápio</a> #}</li>
-                <li><a href="">Home</a></li>
+                <li><a href="{% url 'equipe' %}">Home</a></li>
                 <li>{#<a href="{% url 'sobre' %}">Sobre nós</a>#}</li>
-                <li>{#<a href="{% url 'promocoes' %}">Promoções e eventos</a>#}</li>
+                <li><a href="{% url 'promocoes' %}">Promoções e eventos</a></li>
             </ul>
             <a class="btn-inscrever" href="#">RESERVAR AGORA</a>  
             <button id="mobile_btn"><i class="fa-solid fa-bars"></i></button>  
@@ -27,9 +29,9 @@
             <ul id="mobile_nav_list">
                 <li>{# <a href="{% url 'contato' %}">Fale Conosco</a> #}</li>
                 <li>{#<a href="{% url 'cardapio' %}">Cardápio</a> #}</li>
-                <li><a href="">Home</a></li>
+                <li><a href="{% url 'equipe' %}">Home</a></li>
                 <li>{#<a href="{% url 'sobre' %}">Sobre nós</a>#}</li>
-                <li>{#<a href="{% url 'promocoes' %}">Promoções e eventos</a>#}</li>
+                <li><a href="{% url 'promocoes' %}">Promoções e eventos</a></li>
             </ul>
             <a class="btn-inscrever" href="#">RESERVAR AGORA</a> 
         </div>

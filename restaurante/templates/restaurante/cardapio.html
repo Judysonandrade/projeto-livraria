@@ -1,58 +1,95 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8" />
-    <title>Cardápio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Menu completo</title>
+    <link rel="stylesheet" href="{% static 'styles/menucompleto.css' %}" />
 </head>
 <body>
-    <h1>Cardápio</h1>
+    <header class="navbar">
+        <div class="container">
+            <a href="{% url 'equipe' %}" class="logo">
+                <img src="{% static 'media/lobo.png' %}" alt="Logo">
+            </a>
+            <nav>
+                <ul>
+                    <li>{#<a href="{% url 'contato' %}">Fale Conosco</a>#}</li>
+                    <li>{#<a href="{% url 'executivo' %}">Cardápio</a>#}</li>
+                    <li><a href="{% url 'equipe' %}">Home</a></li>
+                    <li>{#<a href="{% url 'sobre' %}">Sobre nós</a>#}</li>
+                    <li><a href="{% url 'promocoes' %}">Promoções e eventos</a></li>
+                </ul>
+            </nav>
+            <a href="#" class="btn-reservar">RESERVAR AGORA</a>
+        </div>
+    </header>
+    <main>
+        <section class="menu-completo">
+            <div class="container">
+                <h1>Menu Executivo</h1>
+                <p class="subtitulo">R$ XX,00 <br>01 Entrada + 01 Prato Principal + 01 Sobremesa</p>
 
-    <h2>Entrada</h2>
-    {% for item in itens %}
-        {% if item.tipo == 'EN' %}
-            <div style="border: 1px solid #ddd; margin-bottom: 10px; padding: 10px;">
-                <h3>{{ item.titulo }}</h3>
-                <p>{{ item.descricao }}</p>
-                <p>Preço: R$ {{ item.preco }}</p>
-                {% if item.foto %}
-                    <img src="{{ item.foto.url }}" alt="{{ item.titulo }}" style="max-width: 300px;" />
-                {% else %}
-                    <p><i>Foto não disponível</i></p>
-                {% endif %}
-            </div>
-        {% endif %}
-    {% endfor %}
+                <div class="secao-pratos">
+                    <h2>Entrada</h2>
+                    <div class="pratos-grid">
+                        {% for item in itens %}
+                            {% if item.tipo == 'EN' %}
+                                <div class="prato-card">
+                                    {% if item.foto %}
+                                        <img src="{{ item.foto.url }}" alt="{{ item.titulo }}">
+                                    {% else %}
+                                        <img src="{% static 'media/placeholder.png' %}" alt="sem imagem">
+                                    {% endif %}
+                                    <h3>{{ item.titulo }} - R$ {{ item.preco }}</h3>
+                                    <p>{{ item.descricao }}</p>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
 
-    <h2>Prato Principal</h2>
-    {% for item in itens %}
-        {% if item.tipo == 'PR' %}
-            <div style="border: 1px solid #ddd; margin-bottom: 10px; padding: 10px;">
-                <h3>{{ item.titulo }}</h3>
-                <p>{{ item.descricao }}</p>
-                <p>Preço: R$ {{ item.preco }}</p>
-                {% if item.foto %}
-                    <img src="{{ item.foto.url }}" alt="{{ item.titulo }}" style="max-width: 300px;" />
-                {% else %}
-                    <p><i>Foto não disponível</i></p>
-                {% endif %}
-            </div>
-        {% endif %}
-    {% endfor %}
+                <div class="secao-pratos">
+                    <h2>Prato principal</h2>
+                    <div class="pratos-grid">
+                        {% for item in itens %}
+                            {% if item.tipo == 'PR' %}
+                                <div class="prato-card">
+                                    {% if item.foto %}
+                                        <img src="{{ item.foto.url }}" alt="{{ item.titulo }}">
+                                    {% else %}
+                                        <img src="{% static 'media/placeholder.png' %}" alt="sem imagem">
+                                    {% endif %}
+                                    <h3>{{ item.titulo }} - R$ {{ item.preco }}</h3>
+                                    <p>{{ item.descricao }}</p>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
 
-    <h2>Sobremesa</h2>
-    {% for item in itens %}
-        {% if item.tipo == 'SO' %}
-            <div style="border: 1px solid #ddd; margin-bottom: 10px; padding: 10px;">
-                <h3>{{ item.titulo }}</h3>
-                <p>{{ item.descricao }}</p>
-                <p>Preço: R$ {{ item.preco }}</p>
-                {% if item.foto %}
-                    <img src="{{ item.foto.url }}" alt="{{ item.titulo }}" style="max-width: 300px;" />
-                {% else %}
-                    <p><i>Foto não disponível</i></p>
-                {% endif %}
+                <div class="secao-pratos">
+                    <h2>Sobremesa</h2>
+                    <div class="pratos-grid">
+                        {% for item in itens %}
+                            {% if item.tipo == 'SO' %}
+                                <div class="prato-card">
+                                    {% if item.foto %}
+                                        <img src="{{ item.foto.url }}" alt="{{ item.titulo }}">
+                                    {% else %}
+                                        <img src="{% static 'media/placeholder.png' %}" alt="sem imagem">
+                                    {% endif %}
+                                    <h3>{{ item.titulo }} - R$ {{ item.preco }}</h3>
+                                    <p>{{ item.descricao }}</p>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+
             </div>
-        {% endif %}
-    {% endfor %}
+        </section>
+    </main>
 </body>
 </html>
