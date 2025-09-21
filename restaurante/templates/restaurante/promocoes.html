@@ -1,23 +1,79 @@
+{% load static %}
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'styles/styles_promo/promo.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <title>Promoções e Eventos</title>
 </head>
 <body>
-    <h1>Promoções e Eventos</h1>
-    {% for promo in dados %}
-        <div style="border: 1px solid #ddd; margin-bottom: 10px; padding: 10px;">
-            <h2>{{ promo.titulo }}</h2>
-            <p>{{ promo.descricao }}</p>
-            {% if promo.imagem %}
-                <img src="{{ promo.imagem.url }}" alt="{{ promo.titulo }}" style="max-width: 300px;" />
-            {% else %}
-                <p><i>Imagem não disponível</i></p>
-            {% endif %}
+    <header>
+        <nav id="navbar">
+            <img src="{% static 'img/logo_lobo.png' %}" alt="">
+            <ul class="menu">
+                <li>{# <a href="{% url 'contato' %}">Fale Conosco</a> #}</li>
+                <li>{#<a href="{% url 'cardapio' %}">Cardápio</a> #}</li>
+                <li><a href="">Home</a></li>
+                <li>{#<a href="{% url 'sobre' %}">Sobre nós</a>#}</li>
+                <li>{#<a href="{% url 'promocoes' %}">Promoções e eventos</a>#}</li>
+            </ul>
+            <a class="btn-inscrever" href="#">RESERVAR AGORA</a>  
+            <button id="mobile_btn"><i class="fa-solid fa-bars"></i></button>  
+        </nav>
+        <div id="mobile_menu">
+            <ul id="mobile_nav_list">
+                <li>{# <a href="{% url 'contato' %}">Fale Conosco</a> #}</li>
+                <li>{#<a href="{% url 'cardapio' %}">Cardápio</a> #}</li>
+                <li><a href="">Home</a></li>
+                <li>{#<a href="{% url 'sobre' %}">Sobre nós</a>#}</li>
+                <li>{#<a href="{% url 'promocoes' %}">Promoções e eventos</a>#}</li>
+            </ul>
+            <a class="btn-inscrever" href="#">RESERVAR AGORA</a> 
         </div>
-    {% empty %}
-        <p>Não há promoções disponíveis no momento.</p>
-    {% endfor %}
+    </header>
+    <div class="spacing"></div>
+    <section>
+        <div class="main-container text-h2">
+            <h2><span class="sublinhado">Promoções</span> e Eventos</h2>
+            <div class="container-sec">
+                <div class="promo-grid grid-3">
+                    {% for promo in dados %}
+                    <div class="promo-card">
+                        {% if promo.imagem %}
+                        <img class="gradiente" src="{{ promo.imagem.url }}" alt="{{ promo.titulo }}">
+                        {% else %}
+                        <p><i>Imagem não disponível</i></p>
+                        {% endif %}
+                        <div class="text-h3">
+                            <h3>{{ promo.titulo }}</h3>
+                        </div>
+                        <p class="promo-text">{{ promo.descricao }}</p>
+                        <a class="contact" href="#">Contratar Agora</a>
+                    </div>
+                    {% empty %}
+                        <p>Não há promoções disponíveis.</p>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="main-container">
+            <div class="container-3">
+                <img src="{% static 'img/comida_promo.png' %}" alt="">
+                <div class="jantar">
+                    <h2>Jantar Temático</h2>
+                    <div class="bg-jantar">
+                        <p>Uma experiência gastronômica temática, cuidadosamente personalizada de acordo com suas preferências.</p>
+                        <a href="#">Contratar Agora</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="{% static 'javascript/script.js' %}"></script>
 </body>
 </html>
