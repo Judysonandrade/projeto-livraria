@@ -1,7 +1,5 @@
 from django.shortcuts import render
-from rest_framework.decorators import api_view
-from rest_framework.response import Response
-from rest_framework import status
+from datetime import datetime
 from .models import PromocaoEvento, CardapioItem, Funcionario, FeedbackCliente, Reserva, FaleConosco, Especialidades
 
 def promocoes(request):
@@ -20,49 +18,56 @@ def feedbacks(request):
     feedbacks = FeedbackCliente.objects.all()
     return render(request, 'restaurante/feedbacks.html', {'feedbacks': feedbacks})
 
-
-@api_view(['POST'])
 def criar_reserva(request):
-    try:
-        reserva = Reserva.objects.create(
-            nome_cliente=request.data.get('nome_cliente'),
-            telefone=request.data.get('telefone'),
-            data_reserva=request.data.get('data_reserva'),
-            hora_reserva=request.data.get('hora_reserva'),
-            numero_pessoas=request.data.get('numero_pessoas'),
-            tipo_reserva=request.data.get('tipo_reserva', '')
-        )
-        reserva.save()
-        return Response({
-            "id": reserva.id,
-            "nome_cliente": reserva.nome_cliente,
-            "telefone": reserva.telefone,
-            "data_reserva": reserva.data_reserva,
-            "hora_reserva": reserva.hora_reserva,
-            "numero_pessoas": reserva.numero_pessoas,
-            "tipo_reserva": reserva.tipo_reserva
-        }, status=status.HTTP_201_CREATED)
-    except Exception as e:
-        return Response({"error": str(e)}, status=status.HTTP_400_BAD_REQUEST)
+    if request.method == "POST":
+        try:
+            datetime_str = request.POST.get('data_reserva') 
 
-@api_view(['POST'])
+            dt_obj = datetime.strptime(datetime_str, "%Y-%m-%dT%H:%M")
+
+            data = dt_obj.date()
+            hora = dt_obj.time()
+
+            Reserva.objects.create(
+                nome_cliente=request.POST.get('nome_cliente'),
+                telefone=request.POST.get('telefone'),
+                data_reserva=data,
+                hora_reserva=hora,
+                numero_pessoas=request.POST.get('numero_pessoas'),
+                tipo_reserva=request.POST.get('tipo_reserva', '')
+            )
+            mensagem = "Reserva criada com sucesso!"
+        except Exception as e:
+            mensagem = f"Erro: {e}"
+    else:
+        mensagem = None
+
+    reservas = Reserva.objects.all()
+    return render(request, 'restaurante/reservar.html', {
+        'reservas': reservas,
+        'mensagem': mensagem
+    })
+ 
+
 def fale_conosco(request):
-    try:
-        faleConosco = FaleConosco.objects.create(
-            nome=request.data.get('nome'),
-            telefone=request.data.get('telefone'),
-            mensagem=request.data.get('mensagem', '')
-        )
-        faleConosco.save()
-        return Response({
-            "id": faleConosco.id,
-            "nome": faleConosco.nome,
-            "telefone": faleConosco.telefone,
-            "mensagem": faleConosco.mensagem
-        }, status=status.HTTP_201_CREATED)
-    except Exception as e:
-        return Response({"error": str(e)}, status=status.HTTP_400_BAD_REQUEST)
-    
+    mensagem = None
+    if request.method == "POST":
+        try:
+            fale = FaleConosco.objects.create(
+                nome=request.POST.get('nome'),
+                telefone=request.POST.get('telefone'),
+                mensagem=request.POST.get('mensagem', '')
+            )
+            fale.save()
+            mensagem = "Mensagem enviada com sucesso!"
+        except Exception as e:
+            mensagem = f"Erro ao enviar mensagem: {e}"
+
+    mensagens = FaleConosco.objects.all()
+    return render(request, 'restaurante/faleconosco.html', {
+        'mensagens': mensagens,
+        'mensagem': mensagem
+    })
 
 def especialidades(request):
     dados = Especialidades.objects.all()

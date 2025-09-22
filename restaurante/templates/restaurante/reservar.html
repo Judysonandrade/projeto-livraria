@@ -1,0 +1,109 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'styles/faleconosco.css' %}" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <title>Faça sua reserva</title>
+  </head>
+  <body>
+     <header>
+      <nav id="navbar">
+        <a href="{% url 'equipe' %}" class="logo">
+          <img src="{% static 'media/logo_lobo.png' %}" alt="Logo" />
+        </a>
+        <ul class="menu">
+          <li> <a href="{% url 'fale_conosco' %}">Fale Conosco</a> </li>
+          <li>{#<a href="{% url 'cardapio' %}">Cardápio</a> #}</li>
+          <li><a href="{% url 'equipe' %}">Home</a></li>
+          <li>{#<a href="{% url 'sobre' %}">Sobre nós</a>#}</li>
+          <li><a href="{% url 'promocoes' %}">Promoções e eventos</a></li>
+        </ul>
+        <a class="btn-inscrever" href="{% url 'criar_reserva' %}">RESERVAR AGORA</a>
+        <button id="mobile_btn"><i class="fa-solid fa-bars"></i></button>
+      </nav>
+      <div id="mobile_menu">
+        <ul id="mobile_nav_list">
+          <li><a href="{% url 'fale_conosco' %}">Fale Conosco</a></li>
+          <li>{#<a href="{% url 'cardapio' %}">Cardápio</a> #}</li>
+          <li><a href="{% url 'equipe' %}">Home</a></li>
+          <li>{#<a href="{% url 'sobre' %}">Sobre nós</a>#}</li>
+          <li><a href="{% url 'promocoes' %}">Promoções e eventos</a></li>
+        </ul>
+        <a class="btn-inscrever" href="{% url 'criar_reserva' %}">RESERVAR AGORA</a>
+      </div>
+    </header>
+
+    <div class="spacing"></div>
+
+    <section id="reserva">
+      <div class="reserva-container">
+        <h2><span class="sublinhado">Faça</span> sua reserva</h2>
+
+        <form
+          class="reserva-form"
+          method="post"
+          action="{% url 'criar_reserva' %}"
+        >
+          {% csrf_token %}
+
+          <input
+            type="text"
+            name="nome_cliente"
+            placeholder="Seu nome"
+            required
+          />
+          <input type="tel" name="telefone" placeholder="Telefone" required />
+
+          <select name="tipo_reserva" required>
+            <option value="" disabled selected>
+              Tipo de reserva (Promoções/Eventos)
+            </option>
+            <option value="promocoes">Promoções</option>
+            <option value="eventos">Eventos</option>
+          </select>
+
+          <input
+            type="number"
+            name="numero_pessoas"
+            placeholder="Número de pessoas"
+            required
+          />
+
+          <input
+            type="datetime-local"
+            name="data_reserva"
+            placeholder="Data e horário"
+            required
+          />
+
+          <p class="reserva-info">
+            Reservas devem ser feitas com no <br />mínimo 24 horas de
+            antecedência.
+          </p>
+
+          <div class="btn-reserva">
+            <button type="submit">Reservar agora</button>
+          </div>
+        </form>
+
+      </div>
+    </section>
+
+    <script src="{% static 'javascript/script.js' %}"></script>
+  </body>
+</html>
