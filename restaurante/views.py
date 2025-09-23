@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from datetime import datetime
 from .models import PromocaoEvento, CardapioItem, Funcionario, FeedbackCliente, Reserva, FaleConosco, Especialidades
+from rest_framework.response import Response
+from rest_framework.decorators import api_view
 
 def promocoes(request):
     dados = PromocaoEvento.objects.all()
@@ -73,15 +75,3 @@ def especialidades(request):
     dados = Especialidades.objects.all()
     return render(request, 'restaurante/especialidades.html', {'especialidades': dados})
 
-
-
-@api_view(['GET'])
-def feedbacks_api(request):
-    feedbacks = FeedbackCliente.objects.all().values('id', 'nome', 'descricao', 'foto')
-    data = [{
-        'id': f['id'],
-        'nome': f['nome'],
-        'descricao': f['descricao'],
-        'foto': request.build_absolute_uri(f['foto'].url) if f['foto'] else None
-    } for f in feedbacks]
-    return Response(data)
