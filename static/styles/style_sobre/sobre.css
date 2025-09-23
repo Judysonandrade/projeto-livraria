@@ -217,12 +217,26 @@ header nav ul li {
 /* ----> SEÇÃO 3 <---- */
 
 .fb-grid {
-    display: grid;
-    gap: 31.41px;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 32px !important;
+    justify-content: center !important;
+    align-items: flex-start !important; /* garante alinhamento dos cards alinhados pelo topo */
+}
+
+.fb-card .stars img {
+    width: 20px !important;
+    height: 20px !important;
+    margin-right: 4px !important;
+    vertical-align: middle !important;
+    display: inline-block !important;
 }
 
 
 .fb-card {
+    width: 320px !important;      
+    min-width: 300px !important;   
+    max-width: 350px !important;   
     border-radius: 15px;
     padding: 32px;
     border: 2px solid #DED7C2;
@@ -231,11 +245,20 @@ header nav ul li {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    display: flex;
-    max-width: 282.72px;
-    max-height: 402.31px;
-    
 }
+
+.fb-card img {
+    width: 80px !important;         
+    height: 80px !important;         
+    max-width: 80px !important;
+    max-height: 80px !important;
+    object-fit: cover !important;
+    border-radius: 50% !important;   
+    margin-bottom: 16px !important;
+    display: block !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
 
 .container-sec {
     max-width: 1600px;
@@ -251,18 +274,25 @@ header nav ul li {
     margin-bottom: 12px;
 }
 
+.stars img {
+    width: 20px;        /* ajuste menor, ex: 20px */
+    height: 20px;       /* manter proporção quadrada */
+    margin-right: 4px;  /* espaçamento entre as estrelas */
+    vertical-align: middle;
+}
+
 .fb-text {
-    color: #000000;
+    max-width: 240px;
+    margin: 0 auto 14px;
     font-size: 16px;
     font-weight: 400;
-    margin-bottom: 14px;
-    max-width: 180px;
-    max-height: 47px;
+    color: #000;
 }
 
 
 .fb-name {
     color: #000000;
+    text-align: center;
     font-size: 16px;
     font-weight: 400;
 }
