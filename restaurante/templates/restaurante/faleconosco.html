@@ -28,13 +28,15 @@
           <img src="{% static 'media/logo_lobo.png' %}" alt="Logo" />
         </a>
         <ul class="menu">
-          <li> <a href="{% url 'fale_conosco' %}">Fale Conosco</a> </li>
+          <li><a href="{% url 'fale_conosco' %}">Fale Conosco</a></li>
           <li><a href="{% url 'cardapio' %}">Cardápio</a></li>
           <li><a href="{% url 'equipe' %}">Home</a></li>
           <li><a href="{% url 'feedbacks' %}">Sobre nós</a></li>
           <li><a href="{% url 'promocoes' %}">Promoções e eventos</a></li>
         </ul>
-        <a class="btn-inscrever" href="{% url 'criar_reserva' %}">RESERVAR AGORA</a>
+        <a class="btn-inscrever" href="{% url 'criar_reserva' %}"
+          >RESERVAR AGORA</a
+        >
         <button id="mobile_btn"><i class="fa-solid fa-bars"></i></button>
       </nav>
       <div id="mobile_menu">
@@ -45,7 +47,9 @@
           <li><a href="{% url 'feedbacks' %}">Sobre nós</a></li>
           <li><a href="{% url 'promocoes' %}">Promoções e eventos</a></li>
         </ul>
-        <a class="btn-inscrever" href="{% url 'criar_reserva' %}">RESERVAR AGORA</a>
+        <a class="btn-inscrever" href="{% url 'criar_reserva' %}"
+          >RESERVAR AGORA</a
+        >
       </div>
     </header>
 
@@ -59,16 +63,79 @@
           method="post"
           action="{% url 'fale_conosco' %}"
         >
-              {% csrf_token %}
-          <input type="text"    name="nome" placeholder="Seu nome" required />
+          {% csrf_token %}
+          <input type="text" name="nome" placeholder="Seu nome" required />
           <input type="tel" name="telefone" placeholder="Telefone" required />
-          <textarea type="text" name="mensagem" placeholder="Mensagem" required></textarea>
+          <textarea
+            type="text"
+            name="mensagem"
+            placeholder="Mensagem"
+            required
+          ></textarea>
           <div class="btn-reserva">
             <button type="submit">Enviar mensagem</button>
           </div>
         </form>
       </div>
     </section>
+
+    <footer id="footer">
+      <div class="footer-content">
+        <div class="footer-column logo-section">
+          <img src="{% static 'media/footer_lobo.png' %}" alt="" />
+
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1138.6011727455377!2d-86.88075742763442!3d36.17992560406476!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8864604b21dd4237%3A0x4f3504acc22de97b!2sCentennial%20Pl%2C%20Nashville%2C%20TN%2037209%2C%20EUA!5e0!3m2!1spt-BR!2sbr!4v1758592262757!5m2!1spt-BR!2sbr"
+            width="600"
+            height="450"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+          <p>530 Centennial, Nashville, TN 37219, Estados <br />Unidos</p>
+        </div>
+
+        <div class="footer-column contact-section">
+          <h3>CONTATOs</h3>
+          <p><a href="tel:+5521999999999">+55 21 99999-9999</a></p>
+          <p>
+            <a href="mailto:contato@heavens.com">contato@lobocozinha.com</a>
+          </p>
+          <br />
+          <p>Rua ali perto, 89 - Barra da Tijuca</p>
+          <p>Rio de Janeiro - RJ</p>
+
+          <div class="social-icons">
+            <a href="#"
+              ><img src="{% static 'media/instagram.png' %}" alt="Instagram"
+            /></a>
+            <a href="#"
+              ><img src="{% static 'media/facebook.png' %}" alt="Facebook"
+            /></a>
+            <a href="#"
+              ><img src="{% static 'media/youtube.png' %}" alt="YouTube"
+            /></a>
+          </div>
+        </div>
+
+        <div class="footer-column info-section">
+          <h3>INFORMAÇÕES</h3>
+          <ul>
+            <li><a href="#">Reservas</a></li>
+            <li><a href="#">Personal Chef</a></li>
+            <li><a href="#">Buffet</a></li>
+            <li><a href="#">Personalizado</a></li>
+            <li><a href="#">Jantar Temático</a></li>
+            <li><a href="#">Promoções e eventos</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>EJECT &copy; Alguns Direitos <br />Reservados</p>
+      </div>
+    </footer>
     <script src="{% static 'javascript/script.js' %}"></script>
   </body>
 </html>
