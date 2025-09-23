@@ -6,34 +6,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <link rel="stylesheet" href="styles/styles_sobre/sobre.css">
+    <link rel="stylesheet" href="{% static 'styles/style_sobre/sobre.css' %}">
     <title>Sobre nós</title>
 </head>
 <body>
     <header>
         <nav id="navbar">
-            <img src="img/logo_lobo.png" alt="">
+            <img src="{% static 'img/logo_lobo.png' %}" alt="">
             <ul class="menu">
-                <li><a href="/page_squad3.html">Fale Conosco</a></li>
-                <li><a href="/executivo.html">Cardápio</a></li>
-                <li><a href="/page_squad3.html">Home</a></li>
-                <li><a href="/src/sobre.html">Sobre nós</a></li>
-                <li><a href="/src/promo.html">Promoções e eventos</a></li>
+                <li>{#<a href="{% url 'contato' %}">Fale Conosco</a>#}</li>
+                <li>{#<a href="{% url 'executivo' %}">Cardápio</a>#}</li>
+                <li><a href="{% url 'equipe' %}">Home</a></li>
+                <li>{#<a href="{% url 'sobre' %}">Sobre nós</a>#}</li>
+                <li><a href="{% url 'promocoes' %}">Promoções e eventos</a></li>
+
             </ul>
             <a class="btn-inscrever" href="#">RESERVAR AGORA</a>  
             
             <button id="mobile_btn">
                 <i class="fa-solid fa-bars"></i>
             </button>  
-            
         </nav>
         <div id="mobile_menu">
             <ul id="mobile_nav_list">
-                <li><a href="/page_squad3.html">Fale Conosco</a></li>
-                <li><a href="/executivo.html">Cardápio</a></li>
-                <li><a href="/page_squad3.html">Home</a></li>
-                <li><a href="/src/sobre.html">Sobre nós</a></li>
-                <li><a href="/src/promo.html">Promoções e eventos</a></li>
+                <li>{#<a href="{% url 'contato' %}">Fale Conosco</a>#}</li>
+                <li>{#<a href="{% url 'executivo' %}">Cardápio</a>#}</li>
+                <li><a href="{% url 'equipe' %}">Home</a></li>
+                <li>{#<a href="{% url 'sobre' %}">Sobre nós</a>#}</li>
+                <li><a href="{% url 'promocoes' %}">Promoções e eventos</a></li>
+                
             </ul>
             <a class="btn-inscrever" href="#">RESERVAR AGORA</a> 
         </div>
@@ -41,52 +42,48 @@
 
     <div class="spacing"></div>
 
-    
     <section class="main-bg">
-        <div class="main-container ">
+        <div class="main-container">
             <div class="intro">
                 <div class="intro-h1">
                     <h1>Nossa História</h1>
                 </div>
-                <div class="intro-text ">
+                <div class="intro-text">
                     <div class="history">
-                        <p>O restaurante de Benjamin Matos nasceu do sonho de transformar a paixão pela culinária em experiências únicas. Inspirado pelas receitas de família e pela tradição de reunir pessoas à mesa, Benjamin uniu ingredientes frescos e técnicas modernas para criar um espaço acolhedor.
-                            Hoje, seguimos celebrando a boa comida e a hospitalidade, fazendo de cada visita um momento especial.</p>
+                        <p>O restaurante de Benjamin Matos nasceu do sonho de transformar a paixão pela culinária em experiências únicas. Inspirado pelas receitas de família e pela tradição de reunir pessoas à mesa, Benjamin uniu ingredientes frescos e técnicas modernas para criar um espaço acolhedor. Hoje, seguimos celebrando a boa comida e a hospitalidade, fazendo de cada visita um momento especial.</p>
                         <div class="btn-reservar">
                             <a href="#">FAÇA SUA RESERVA</a>
                         </div>
                     </div>
                     <div class="intro-img">
-                        <img src="img/image 13.png" alt="">
+                         <img src="{% static 'media/image_13.png' %}" alt="">
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-
     <section>
         <div class="main-container text-h2">
             <h2>Diferenciais da casa</h2>
             <div class="grid grid-3">
-            
                 <div class="diferencial-item">
                     <div class="icon-bg">
-                        <img class="diferencial-icon" src="img/folha.png" alt="">
+                        <img class="diferencial-icon" src="{% static 'media/folha.png' %}" alt="">
                     </div>
                     <h3>Ingredientes frescos</h3>
                 </div>
 
                 <div class="diferencial-item">
                     <div class="icon-bg">
-                        <img  class="diferencial-icon" src="img/tampa.png" alt="">
+                        <img class="diferencial-icon" src="{% static 'media/tampa.png' %}" alt="">
                     </div>
                     <h3>Atendimento personalizado</h3>
                 </div>
 
                 <div class="diferencial-item">
                     <div class="icon-bg">
-                        <img  class="diferencial-icon" src="img/casa.png" alt="">
+                        <img class="diferencial-icon" src="{% static 'media/casa.png' %}" alt="">
                     </div>
                     <h3>Ambiente aconchegante</h3>
                 </div>
@@ -94,9 +91,7 @@
         </div>
     </section>
 
-    
     <div class="spacing"></div>
-
 
     <section>
         <div class="main-container text-h2">
@@ -104,37 +99,39 @@
             <div class="container-sec">
                 <div class="fb-grid grid-3">
                     <div class="fb-card">
-                        <img src="{% static 'media/image_14.png' %}" alt="sem imagem">
+                        <img src="{% static 'media/image_14.png' %}" alt="">
                         <div class="stars">
-                            <img src="img/estrela.png" alt="">
-                            <img src="img/estrela.png" alt="">
-                            <img src="img/estrela.png" alt="">
-                            <img src="img/estrela.png" alt="">
-                            <img src="img/estrela.png" alt="">
+                            <img src="{% static 'media/estrela.png' %}" alt="">
+                            <img src="{% static 'media/estrela.png' %}" alt="">
+                            <img src="{% static 'media/estrela.png' %}" alt="">
+                            <img src="{% static 'media/estrela.png' %}" alt="">
+                            <img src="{% static 'media/estrela.png' %}" alt="">
                         </div>
                         <p class="fb-text">Atendimento incrível e pratos deliciosos!</p>
                         <h4 class="fb-name">Roberto J.</h4>
                     </div>
+
                     <div class="fb-card">
-                        <img src="{% static 'media/image_15.png' %}" alt="sem imagem">
+                        <img src="{% static 'media/image_15.png' %}" alt="">
                         <div class="stars">
-                            <img src="img/estrela.png" alt="">
-                            <img src="img/estrela.png" alt="">
-                            <img src="img/estrela.png" alt="">
-                            <img src="img/estrela.png" alt="">
-                            <img src="img/estrela.png" alt="">
+                            <img src="{% static 'media/estrela.png' %}" alt="">
+                            <img src="{% static 'media/estrela.png' %}" alt="">
+                            <img src="{% static 'media/estrela.png' %}" alt="">
+                            <img src="{% static 'media/estrela.png' %}" alt="">
+                            <img src="{% static 'media/estrela.png' %}" alt="">
                         </div>
                         <p class="fb-text">Experiência fantástica! Pratos de qualidade.</p>
                         <h4 class="fb-name">Julia K.</h4>
                     </div>
+
                     <div class="fb-card">
-                        <img src="{% static 'media/image_16.png' %}" alt="sem imagem">
+                        <img src="{% static 'media/image_16.png' %}" alt="">
                         <div class="stars">
-                            <img src="img/estrela.png" alt="">
-                            <img src="img/estrela.png" alt="">
-                            <img src="img/estrela.png" alt="">
-                            <img src="img/estrela.png" alt="">
-                            <img src="img/estrela.png" alt="">
+                            <img src="{% static 'media/estrela.png' %}" alt="">
+                            <img src="{% static 'media/estrela.png' %}" alt="">
+                            <img src="{% static 'media/estrela.png' %}" alt="">
+                            <img src="{% static 'media/estrela.png' %}" alt="">
+                            <img src="{% static 'media/estrela.png' %}" alt="">
                         </div>
                         <p class="fb-text">Lugar acolhedor e um ambiente fantástico!</p>
                         <h4 class="fb-name">Clara M.</h4>
@@ -144,6 +141,6 @@
         </div>
     </section>
 
-    <script src="javascript/script.js"></script>
+    <script src="{% static 'javascript/script.js' %}"></script>
 </body>
 </html>

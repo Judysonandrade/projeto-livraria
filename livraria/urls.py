@@ -9,6 +9,7 @@ urlpatterns = [
     path('', include('restaurante.urls')),
     path('planos/', include('planos.urls')),
     path('usuarios/', include('usuarios.urls')),
+    path('', include('restaurante.urls')),
     
 ]
 
