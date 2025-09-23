@@ -73,3 +73,6 @@ def especialidades(request):
     dados = Especialidades.objects.all()
     return render(request, 'restaurante/especialidades.html', {'especialidades': dados})
 
+def executivo(request):
+    itens_selecionados = CardapioItem.objects.filter(selecionado=True)
+    return render(request, 'restaurante/executivo.html', {'itens': itens_selecionados})
