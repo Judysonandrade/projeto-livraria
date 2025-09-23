@@ -73,8 +73,6 @@ def especialidades(request):
     dados = Especialidades.objects.all()
     return render(request, 'restaurante/especialidades.html', {'especialidades': dados})
 
-
-
 @api_view(['GET'])
 def feedbacks_api(request):
     feedbacks = FeedbackCliente.objects.all().values('id', 'nome', 'descricao', 'foto')
@@ -85,3 +83,7 @@ def feedbacks_api(request):
         'foto': request.build_absolute_uri(f['foto'].url) if f['foto'] else None
     } for f in feedbacks]
     return Response(data)
+
+def executivo(request):
+    itens_selecionados = CardapioItem.objects.filter(selecionado=True)
+    return render(request, 'restaurante/executivo.html', {'itens': itens_selecionados})
