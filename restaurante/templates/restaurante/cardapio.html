@@ -15,14 +15,14 @@
             </a>
             <nav>
                 <ul>
-                    <li>{#<a href="{% url 'fale_conosco' %}">Fale Conosco</a>#}</li>
+                    <li><a href="{% url 'fale_conosco' %}">Fale Conosco</a></li>
                     <li><a href="{% url 'executivo' %}">Cardápio</a></li>
                     <li><a href="{% url 'equipe' %}">Home</a></li>
                     <li><a href="{% url 'feedbacks' %}">Sobre nós</a></li>
                     <li><a href="{% url 'promocoes' %}">Promoções e eventos</a></li>
                 </ul>
             </nav>
-            <a href="#" class="btn-reservar">RESERVAR AGORA</a>
+            <a href="{% url 'criar_reserva' %}" class="btn-reservar">RESERVAR AGORA</a>
         </div>
     </header>
     <main>
