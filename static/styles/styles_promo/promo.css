@@ -129,23 +129,22 @@ header nav ul li {
 
 .promo-card {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    justify-content: start;
     text-align: center;
-    max-width: 360px;
+    align-items: center;
+    flex-direction: column;
+    max-width: 360px;   
     border: 2px solid #DED7C2;
     border-radius: 15px;
-    padding: 20px;
-    box-sizing: border-box;
 }
 
 .promo-card img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
-    margin-bottom: 15px;
+    width: 100%;
+    max-width: 300px;
+    height: 300px; 
     object-fit: cover;
-    display: block;
+    object-position: center bottom;
+    border-radius: 15px 15px 0 0;
 }
 
 .text-h3 h3 {
@@ -163,6 +162,9 @@ header nav ul li {
     min-height: 120px;
     line-height: 24px;
     margin-top: 20px;
+    margin-bottom: 20px;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
 .contact {

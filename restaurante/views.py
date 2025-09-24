@@ -14,7 +14,15 @@ def cardapio(request):
 
 def equipe(request):
     equipe = Funcionario.objects.all()
-    return render(request, 'restaurante/equipe.html', {'equipe': equipe})
+    dados = PromocaoEvento.objects.all()
+    itens = CardapioItem.objects.all()  
+    
+    return render(request, 'restaurante/equipe.html', {
+        'equipe': equipe,
+        'dados': dados,
+        'itens': itens,  
+    })
+
 
 def feedbacks(request):
     feedbacks = FeedbackCliente.objects.all()
@@ -24,9 +32,7 @@ def criar_reserva(request):
     if request.method == "POST":
         try:
             datetime_str = request.POST.get('data_reserva') 
-
             dt_obj = datetime.strptime(datetime_str, "%Y-%m-%dT%H:%M")
-
             data = dt_obj.date()
             hora = dt_obj.time()
 
@@ -50,7 +56,6 @@ def criar_reserva(request):
         'mensagem': mensagem
     })
  
-
 def fale_conosco(request):
     mensagem = None
     if request.method == "POST":
@@ -75,3 +80,6 @@ def especialidades(request):
     dados = Especialidades.objects.all()
     return render(request, 'restaurante/especialidades.html', {'especialidades': dados})
 
+def executivo(request):
+    itens_selecionados = CardapioItem.objects.filter(selecionado=True)
+    return render(request, 'restaurante/executivo.html', {'itens': itens_selecionados})

@@ -4,18 +4,19 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Menu completo</title>
-    <link rel="stylesheet" href="{% static 'styles/menucompleto.css' %}" />
+    <title>Menu Executivo</title>
+    <link rel="stylesheet" href="{% static 'styles/executivo.css' %}" />
 </head>
 <body>
+
     <header class="navbar">
         <div class="container">
             <a href="{% url 'equipe' %}" class="logo">
-                <img src="{% static 'media/lobo.png' %}" alt="Logo">
+                <img src="{% static 'media/lobo.png' %}" alt="Logo" /> 
             </a>
             <nav>
                 <ul>
-                    <li>{#<a href="{% url 'fale_conosco' %}">Fale Conosco</a>#}</li>
+                    <li>{#<a href="{% url 'contato' %}">Fale Conosco</a>#}</li>
                     <li><a href="{% url 'executivo' %}">Cardápio</a></li>
                     <li><a href="{% url 'equipe' %}">Home</a></li>
                     <li><a href="{% url 'feedbacks' %}">Sobre nós</a></li>
@@ -25,10 +26,11 @@
             <a href="#" class="btn-reservar">RESERVAR AGORA</a>
         </div>
     </header>
+
     <main>
-        <section class="menu-completo">
+        <section class="menu-executivo">
             <div class="container">
-                <h1>Menu Completo</h1>
+                <h1>Menu Executivo</h1>
                 <p class="subtitulo">R$ XX,00 <br>01 Entrada + 01 Prato Principal + 01 Sobremesa</p>
 
                 <div class="secao-pratos">
@@ -38,14 +40,16 @@
                             {% if item.tipo == 'EN' %}
                                 <div class="prato-card">
                                     {% if item.foto %}
-                                        <img src="{{ item.foto.url }}" alt="{{ item.titulo }}">
+                                        <img src="{{ item.foto.url }}" alt="{{ item.titulo }}" />
                                     {% else %}
-                                        <img src="{% static 'media/placeholder.png' %}" alt="sem imagem">
+                                        <img src="{% static 'media/placeholder.png' %}" alt="Sem imagem" />
                                     {% endif %}
                                     <h3>{{ item.titulo }} - R$ {{ item.preco }}</h3>
                                     <p>{{ item.descricao }}</p>
                                 </div>
                             {% endif %}
+                        {% empty %}
+                            <p>Não há entradas disponíveis.</p>
                         {% endfor %}
                     </div>
                 </div>
@@ -57,14 +61,16 @@
                             {% if item.tipo == 'PR' %}
                                 <div class="prato-card">
                                     {% if item.foto %}
-                                        <img src="{{ item.foto.url }}" alt="{{ item.titulo }}">
+                                        <img src="{{ item.foto.url }}" alt="{{ item.titulo }}" />
                                     {% else %}
-                                        <img src="{% static 'media/placeholder.png' %}" alt="sem imagem">
+                                        <img src="{% static 'media/placeholder.png' %}" alt="Sem imagem" />
                                     {% endif %}
                                     <h3>{{ item.titulo }} - R$ {{ item.preco }}</h3>
                                     <p>{{ item.descricao }}</p>
                                 </div>
                             {% endif %}
+                        {% empty %}
+                            <p>Não há pratos principais disponíveis.</p>
                         {% endfor %}
                     </div>
                 </div>
@@ -76,20 +82,41 @@
                             {% if item.tipo == 'SO' %}
                                 <div class="prato-card">
                                     {% if item.foto %}
-                                        <img src="{{ item.foto.url }}" alt="{{ item.titulo }}">
+                                        <img src="{{ item.foto.url }}" alt="{{ item.titulo }}" />
                                     {% else %}
-                                        <img src="{% static 'media/placeholder.png' %}" alt="sem imagem">
+                                        <img src="{% static 'media/placeholder.png' %}" alt="Sem imagem" />
                                     {% endif %}
                                     <h3>{{ item.titulo }} - R$ {{ item.preco }}</h3>
                                     <p>{{ item.descricao }}</p>
                                 </div>
                             {% endif %}
+                        {% empty %}
+                            <p>Não há sobremesas disponíveis.</p>
                         {% endfor %}
                     </div>
                 </div>
+            </div>
+        </section>
 
+        <section class="criacoes-exclusivas">
+            <div class="container">
+                <div class="grid-container">
+                    <div class="imagem-coluna">
+                        <img src="{% static 'media/exclusivo.png' %}" alt="Criações Exclusivas" />
+                    </div>
+
+                    <div class="texto-coluna">
+                        <h2>Criações Exclusivas</h2>
+                        <p class="subtitulo-secao">Cozinha Contemporânea Brasileira</p>
+                        <p>
+                            Entre as entradas, os famosos Steak tartare de mignon com ovo de codorna frito e batata chips e a Polenta cremosa com linguiça com requeijão ao molho de tomate estão entre os mais pedidos.
+                        </p>
+                        <a href="{% url 'cardapio' %}" class="btn-principal">VER MENU COMPLETO</a>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
+
 </body>
 </html>

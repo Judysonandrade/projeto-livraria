@@ -1,0 +1,152 @@
+.section-carrossel {
+    position: relative;
+    overflow: hidden;   
+}
+
+.carrossel-container {
+    display: flex;
+    width: 100%;    
+    align-items: center;
+    justify-content: center;
+    gap: 45px;
+    margin-top: 40px
+
+}
+
+.slider-content {
+    max-width: 1300px;
+    width: 100%;
+    overflow: hidden;
+    min-height: 400px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    display: flex;
+}
+
+.slider {
+    display: flex;
+    gap: 45px;
+    transition: transform 0.5s ease;
+}
+
+.slide-item {
+    text-align: center;
+    justify-content: center;
+    transition: transform 0.4s ease;
+    align-items: center;
+}
+
+.slide-item h3 {
+    color: #FFFFFF;
+    margin-top: 20px;
+}
+
+.slide-1 h3 {
+    min-width: 225px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.text-carrossel {
+    font-size: 16px;
+    font-weight: 500;
+    margin-top: 10px;
+    color: #FFFFFF;
+}
+
+.ver-mais {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px; 
+}
+
+.ver-mais a {
+    color: #FFFFFF;
+    font-size: 18px;
+    text-decoration: underline;
+}
+
+.slide-item.active {
+    transform: scale(1.2); 
+}
+
+.arrow {
+    background: transparent;
+    border: none; 
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+@media (max-width: 1024px) {
+    .slider-content {
+        width: 100%;
+        min-height: auto;       
+        height: auto;           
+        overflow: visible;
+    }
+    
+
+    .slider {
+        width: 100%;
+        transition: transform 0.5s ease-in-out;
+    }
+
+    .slide-item {
+        flex: 0 0 100%; 
+        text-align: center;
+        transform: none !important;
+    }
+
+    .slide-item img {
+        width: 100%;
+        max-width: 260px;
+        height: auto;
+        margin: 0 auto;
+        display: block;
+    }
+
+    .slide-item h3 {
+        font-size: 14px;
+        margin-top: 12px;   
+        white-space: normal; 
+    }
+
+    .slide-item h3 {
+        font-size: 14px;
+    }
+
+    .arrow {
+        position: absolute;
+        top: 50%; 
+        transform: translateY(-50%); 
+        border-radius: 50%; 
+        padding: 8px;
+    }
+    
+    #prev-btn-1, #prev-btn-2 {
+        left: 10px; 
+    }
+
+    #next-btn-1, #next-btn-2 {
+        right: 10px; 
+    }
+
+    .arrow img {
+        height: auto;
+    }
+
+    .ver-mais {
+        margin-top: 20px;
+    }
+
+    .ver-mais a {
+        font-size: 16px;
+    }
+
+}
