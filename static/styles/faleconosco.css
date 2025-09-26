@@ -147,14 +147,6 @@ h1, h2, h3, h4, p, a {
     font-size: 12px;
 }
 
-.reserva-info {
-    font-size: 13px;
-    color: #000000;
-    text-align: center;
-    margin: 10px 0 20px;
-    font-weight: 400;
-}
-
 .btn-reserva {
     max-width: 100%;
     justify-content: center;
@@ -171,6 +163,91 @@ h1, h2, h3, h4, p, a {
     cursor: pointer;
 }
 
+#footer {
+  width: 100%;
+  background-color: #DED6BC;
+  color: #3F2305;
+  padding: 20px; 
+  font-family: Arial, sans-serif;
+}
+
+/* Container que agrupa as colunas */
+.footer-content {
+  display: flex;
+  justify-content: space-between; 
+  align-items: flex-start;
+  flex-wrap: wrap; 
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-bottom: 30px;
+}
+
+/* Estilo todas as colunas */
+.footer-column {
+  flex: 1; 
+  min-width: 250px; 
+  padding: 0 15px; 
+}
+
+.footer-column h3 {
+  font-size: 16px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.footer-column p, .footer-column li {
+  margin-bottom: 12px;
+  font-size: 14px;
+}
+
+a {
+  color: #3F2305;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: #3F2305;
+}
+
+/* Lista da seção "Informações" */
+.info-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Ícones de Redes Sociais */
+.social-icons {
+  margin-top: 20px;
+}
+
+.social-icons a {
+  margin-right: 15px;
+}
+
+.social-icons img {
+  width: 24px;
+  filter: invert(15%) sepia(68%) saturate(53%) hue-rotate(351deg) brightness(9%) contrast(101%);
+}
+
+/* Linha de Copyright */
+.footer-bottom {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 20px;
+  font-size: 13px;
+  text-align: left;
+}
+
+.logo-section iframe {
+  width: 100%;           /* Faz o mapa ocupar toda a largura da coluna */
+  height: 180px;          /* Defina uma altura para o mapa */
+  border-radius: 15px;    /* Deixa os cantos arredondados */
+  border: none;           /* Remove a borda padrão */
+  margin-top: 20px;       /* Cria um espaço entre o logo e o mapa */
+}
 
 @media screen and (max-width: 1170px) {
     .menu,
@@ -217,6 +294,7 @@ h1, h2, h3, h4, p, a {
 
     .reserva-form input,
     .reserva-form select,
+    .reserva-form textarea,
     .reserva-form button {
         font-size: 14;
         padding: 15px 15px;

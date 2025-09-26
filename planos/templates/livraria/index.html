@@ -1,0 +1,351 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <title>Biblioteca sapiens</title>
+    <link rel="stylesheet" href="{% static 'styles/livraria/styles.css' %}" />
+    <link rel="stylesheet" href="{% static 'styles/livraria/header.css' %}" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="{% static 'styles/livraria/main.css' %}" />
+    <link rel="stylesheet" href="{% static 'styles/livraria/plano.css' %}" />
+    <link rel="stylesheet" href="{% static 'styles/livraria/book.css' %}" />
+  </head>
+  <body>
+    <header>
+      <nav id="navbar">
+        <img 
+        
+        src="{% static 'media/livros.png' %}" alt="" />
+        <ul class="menu">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Notícias</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Sobre nós</a></li>
+        </ul>
+        <a class="btn-inscrever" href="#">TESTAR GRÁTIS</a>
+
+        <button id="mobile_btn">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </nav>
+      <div id="mobile_menu">
+        <ul id="mobile_nav_list">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Notícias</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Sobre nós</a></li>
+        </ul>
+        <a class="btn-inscrever" href="#">TESTAR GRÁTIS</a>
+      </div>
+    </header>
+    <main id="container-main">
+      <section id="home">
+        <img class="bg-home" src="{% static 'media/Rectangle 649.png' %}" alt="" />
+        <img class="bg-home-cel" src="{% static 'media/bg-home-cel.png' %}" alt="" />
+        <div id="mockup">
+          <img src="{% static 'media/mockup.png' %}" alt="" />
+        </div>
+        <div id="cta">
+          <h1 class="title">Sua próxima aventura está nas nossas páginas!</h1>
+          <div id="teste">
+            <a href="#">TESTAR GRÁTIS</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="plano-section">
+        <div class="plano-card">
+          <div class="plano-valores">
+            <h3>Tudo isso por apenas</h3>
+            <h2 class="shadow">R$ 19,90</h2>
+            <p>no primeiro mês depois</p>
+            <p>R$ 29,90</p>
+            <button>Contratar</button>
+          </div>
+          <img src="{% static 'media/celular-2.png' %}" alt="" />
+        </div>
+        <!-- MOBILE -->
+        <div class="plano-card-mobile">
+          <div class="plano-valores">
+            <h3>Tudo isso por apenas</h3>
+            <h2 class="shadow">R$ 19,90</h2>
+            <p>no primeiro mês depois</p>
+            <p>R$ 29,90</p>
+            <button>Contratar</button>
+          </div>
+        </div>
+        <div class="beneficios">
+          <h2>
+            <span class="ben-color">Benefícios</span> do nosso plano
+            <span class="ben-underline">Angelical</span>
+          </h2>
+          <ul>
+            <li>
+              <div class="icone">
+                <img src="{% static 'media/beneficios-1.png' %}" alt="" />
+              </div>
+              <div class="beneficio-text">
+                <h3>Curadoria especializada</h3>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
+                  eget nisi vitae felis pulvinar posuere.
+                </p>
+              </div>
+            </li>
+            <li>
+              <div class="icone">
+                <img src="{% static 'media/beneficios-2.png' %}" alt="" />
+              </div>
+              <div class="beneficio-text">
+                <h3>Comunidade integrada</h3>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
+                  eget nisi vitae felis pulvinar posuere.
+                </p>
+              </div>
+            </li>
+            <li>
+              <div class="icone">
+                <img src="{% static 'media/beneficios-3.png' %}" alt="" />
+              </div>
+              <div class="beneficio-text">
+                <h3>Economia</h3>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
+                  eget nisi vitae felis pulvinar posuere.
+                </p>
+              </div>
+            </li>
+            <li>
+              <div class="icone">
+                <img src="{% static 'media/beneficios-4.png' %}" alt="" />
+              </div>
+              <div class="beneficio-text">
+                <h3>Descobertas</h3>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
+                  eget nisi vitae felis pulvinar posuere.
+                </p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <section>
+        <div id="container-books" class="bg-books">
+          <div id="books-title">
+            <h2>
+              Tudo que você <span class="sublinhado">precisa</span>, junto em um
+              só lugar!
+            </h2>
+          </div>
+
+          <div class="phone-box">
+            <img class="img-celular" src="{% static 'media/celular_book.png' %}" alt="" />
+          </div>
+
+          <div id="books">
+            <img src="{% static 'media/books.png' %}" alt="" />
+          </div>
+          <div id="ver-mais-link">
+            <a class="link-a" href="#">Ver mais</a
+            ><img src="{% static 'media/Vector.png' %}" alt="" />
+          </div>
+        </div>
+      </section>
+
+      <section id="planos">
+        <div class="servicos">
+          <p>NOSSOS SERVIÇOS</p>
+          <h2>
+            CONHEÇA TODAS AS <span class="subli">VANTAGENS AZ. FELL</span>
+          </h2>
+        </div>
+
+        <div class="planos-content">
+          <article class="plan-card">
+            <div class="plan-img">
+              <img src="{% static 'media/plan-gratuito.png' %}" alt="" />
+            </div>
+            <div class="plan-content">
+              <h3 class="plan-titulo">Plano Gratuito</h3>
+              <p class="plan-subtitulo">Aproveite nossas vantagens</p>
+              <p class="plan-descrição">
+                Lorem ipsum dolor sit amet consectetur. Nec id sit enim cursus
+                pharetra tellus sed nec velit. A purus velit tortor elit pretium
+                diam nulla.
+              </p>
+              <a href="#" class="plan-button">VER MAIS</a>
+            </div>
+          </article>
+
+          <article class="plan-card card-reverse">
+            <div class="plan-img">
+              <img src="{% static 'media/plan-duo.png' %}" alt="" />
+            </div>
+            <div class="plan-content">
+              <h3 class="plan-titulo">Plano Duo</h3>
+              <p class="plan-subtitulo">Para você & Alguém especial</p>
+              <p class="plan-descrição">
+                Lorem ipsum dolor sit amet consectetur. Nec id sit enim cursus
+                pharetra tellus sed nec velit. A purus velit tortor elit pretium
+                diam nulla.
+              </p>
+              <a href="#" class="plan-button">VER MAIS</a>
+            </div>
+          </article>
+
+          <article class="plan-card-overlay">
+            <div class="overlay-content">
+              <div class="overlay-text">
+                <h3 class="plan-titulo">Plano Angelical</h3>
+                <span class="premium-tag">Premium</span>
+                <p class="plan-descrição">
+                  Lorem ipsum dolor sit amet consectetur. Nec id sit<br />
+                  enim cursus pharetra tellus sed nec velit. A purus<br />
+                  velit tortor elit pretium diam nulla.
+                </p>
+              </div>
+              <a href="#" class="plan-button">VER MAIS</a>
+            </div>
+          </article>
+
+          <hr class="divisor" />
+
+          <section id="clientes-section">
+            <div class="cliente-conteiner">
+              <div class="clientes">
+                <p>NOSSOS CLIENTES</p>
+                <h2>QUEM USA <span class="subli">AZ ANGEL</span> CONFIA</h2>
+              </div>
+
+              <div class="clientes-grid">
+                <article class="cliente-card">
+                  <div class="card-header">
+                    <img
+                      src="{% static 'media/Hermione.png' %}"
+                      alt=""
+                      class="profile-img"
+                    />
+                    <div class="cliente-info">
+                      <p class="autor-nome">Hermione Grange</p>
+                      <p class="autor-perfil">@wisemagic</p>
+                    </div>
+                  </div>
+                  <blockquote class="cliente-depoimento">
+                    “Qui nostrum molestiae non<br />
+                    quis eius aut omnis blanditiis<br />
+                    quo galisum.”
+                  </blockquote>
+                </article>
+
+                <article class="cliente-card">
+                  <div class="card-header">
+                    <img src="{% static 'media/Becky.png' %}" alt="" class="profile-img" />
+                    <div class="cliente-info">
+                      <p class="autor-nome">Becky Swavy</p>
+                      <p class="autor-perfil">@miss1989</p>
+                    </div>
+                  </div>
+                  <blockquote class="cliente-depoimento">
+                    “Qui nostrum molestiae non<br />
+                    quis eius aut omnis blanditiis<br />
+                    quo galisum.”
+                  </blockquote>
+                </article>
+
+                <article class="cliente-card">
+                  <div class="card-header">
+                    <img src="{% static 'media/Peter.png' %}" alt="" class="profile-img" />
+                    <div class="cliente-info">
+                      <p class="autor-nome">Peter James</p>
+                      <p class="autor-perfil">@seaweedbrain</p>
+                    </div>
+                  </div>
+                  <blockquote class="cliente-depoimento">
+                    “Qui nostrum molestiae non<br />
+                    quis eius aut omnis blanditiis<br />
+                    quo galisum.”
+                  </blockquote>
+                </article>
+              </div>
+            </div>
+          </section>
+
+          <hr class="divisor" />
+        </div>
+      </section>
+    </main>
+
+    <aside id="autor">
+      <div class="info-autor">
+        <h2>Alberto de <br />Magalhões</h2>
+        <p class="profissao">Professor de Letras e CEO AZ. FELL CO.</p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur. Nec id sit enim cursus <br />
+          pharetra tellus sed nec velit. A purus velit tortor elit pretium diam
+          <br />
+          nulla. Commodo rhoncus hac felis nisl neque felis porta. Facilisis
+          est<br />
+          est dictumst lacus quam nunc sit.
+        </p>
+      </div>
+      <div class="foto-autor">
+        <img src="{% static 'media/autor.png' %}" alt="" />
+      </div>
+    </aside>
+
+    <footer id="footer">
+      <div class="footer-content">
+        <div class="footer-column logo-section">
+          <img src="{% static 'media/logo.png' %}" alt="A.Z. Fell and Co. book shop" />
+        </div>
+
+        <div class="footer-column contact-section">
+          <h3>CONTATO</h3>
+          <p><a href="tel:+5521999999999">+55 21 99999-9999</a></p>
+          <p><a href="mailto:contato@heavens.com">contato@heavens.com</a></p>
+          <br />
+          <p>Rua ali perto, 01 - Aparecida</p>
+          <p>São Paulo - SP</p>
+
+          <div class="social-icons">
+            <a href="#"><img src="{% static 'media/instagram.png' %}" alt="Instagram" /></a>
+            <a href="#"><img src="{% static 'media/facebook.png' %}" alt="Facebook" /></a>
+            <a href="#"><img src="{% static 'media/youtube.png' %}" alt="YouTube" /></a>
+          </div>
+        </div>
+
+        <div class="footer-column info-section">
+          <h3>INFORMAÇÕES</h3>
+          <ul>
+            <li><a href="#">Plano Angelical</a></li>
+            <li><a href="#">Nosso Catálogo</a></li>
+            <li><a href="#">Depoimentos</a></li>
+            <li><a href="#">Quem somos?</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>EJECT &copy; Alguns Direitos Reservados</p>
+      </div>
+    </footer>
+
+    <script src="src/javascript/script.js"></script>
+  </body>
+</html>
