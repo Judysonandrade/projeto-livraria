@@ -1,0 +1,200 @@
+.main-container {
+    max-width: 1160px;
+    margin: 0 auto;
+}
+
+.text-h2 h2 {
+    font-size: 48px;
+    color: #FFFFFF;
+    font-weight: 700;
+    margin-bottom: 85px;
+    margin-top: 30px;
+}
+
+.sublinhado {
+  position: relative; 
+  display: inline-block;
+}
+
+.sublinhado::after {
+  content: ''; 
+  position: absolute; 
+  width: 100px; 
+  height: 8px; 
+  background-color: #FFFFFF;
+  bottom: -8px; 
+  left: 0px;
+}
+
+.grid-esp {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 37px;
+    margin: 0 auto;
+}
+
+.grid-item {
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.grid-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.grid-card {
+    max-width: 360px;
+    min-height: 340px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+
+.grid-card-3 {
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #F1EAD6 0%);
+}
+
+.grid-card-4 {
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #DED7C2 0%);
+
+}
+
+.grid-card-5 {
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0% , #FFFFFF 0%);
+
+}
+
+.grid-card-6 {
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0% , #EAE6E3 0%);
+}
+
+.grid-card h3 {
+    font-size: 30px;
+    line-height: 44px;
+    letter-spacing: 10px;
+    font-weight: 500;
+    max-width: 230px;
+    margin-top: 28px;
+}
+
+.grid-card p {
+    font-size: 20px;
+    line-height: 28px;
+    max-width: 285px;
+    font-weight: 400;
+}
+
+.grid-card a {
+    font-size: 20px;
+    text-decoration: underline;
+    font-weight: 400;
+    margin-bottom: 28px;
+    color: #000000;
+}
+
+.grid-span {
+    grid-column: span 2;
+}
+
+
+
+@media (max-width: 1024px) {
+    .grid-esp {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+
+    .grid-card {
+        max-width: 100%;
+        min-height: 300px;
+        padding: 20px;
+    }
+
+    .grid-card h3 {
+        font-size: 26px;
+        line-height: 36px;
+        letter-spacing: 6px;
+        max-width: 100%;
+    }
+
+    .grid-card p {
+        font-size: 18px;
+        line-height: 26px;
+        max-width: 100%;
+    }
+
+    .grid-card a {
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .grid-esp {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .grid-span {
+        grid-column: span 1;
+    }
+
+    .text-h2 h2 {
+        font-size: 36px;
+        margin-bottom: 50px;
+    }
+
+    .sublinhado::after {
+        width: 60px;
+        height: 5px;
+        bottom: -5px;
+    }
+
+    .grid-card h3 {
+        font-size: 24px;
+        line-height: 32px;
+        letter-spacing: 3px;
+    }
+
+    .grid-card p {
+        font-size: 16px;
+        line-height: 24px;
+    }
+
+    .grid-card a {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .text-h2 h2 {
+        font-size: 28px;
+        margin-bottom: 35px;
+    }
+
+    .sublinhado::after {
+        width: 50px;
+        height: 4px;
+        bottom: -4px;
+    }
+
+    .grid-card h3 {
+        font-size: 20px;
+        line-height: 28px;
+        letter-spacing: 2px;
+    }
+
+    .grid-card p {
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    .grid-card a {
+        font-size: 14px;
+    }
+}

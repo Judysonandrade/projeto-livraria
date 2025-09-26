@@ -11,9 +11,11 @@
 <body>
     <header>
         <nav id="navbar">
-            <img src="{% static 'media/logo_lobo.png' %}" alt="Logo" />
+            <a href="{% url 'equipe' %}" class="logo">
+                <img src="{% static 'media/lobo.png' %}" alt="Logo">
+            </a>
             <ul class="menu">
-                <li>{# <a href="{% url 'contato' %}">Fale Conosco</a> #}</li>
+                <li><a href="{% url 'fale_conosco' %}">Fale Conosco</a></li>
                 <li><a href="{% url 'executivo' %}">Cardápio</a></li>
                 <li><a href="{% url 'equipe' %}">Home</a></li>
                 <li><a href="{% url 'feedbacks' %}">Sobre nós</a></li>
@@ -24,13 +26,13 @@
         </nav>
         <div id="mobile_menu">
             <ul id="mobile_nav_list">
-                <li>{# <a href="{% url 'contato' %}">Fale Conosco</a> #}</li>
+                <li><a href="{% url 'fale_conosco' %}">Fale Conosco</a></li>
                 <li><a href="{% url 'executivo' %}">Cardápio</a></li>
                 <li><a href="{% url 'equipe' %}">Home</a></li>
                 <li><a href="{% url 'feedbacks' %}">Sobre nós</a></li>
                 <li><a href="{% url 'promocoes' %}">Promoções e eventos</a></li>
             </ul>
-            <a class="btn-inscrever" href="#">RESERVAR AGORA</a> 
+            <a class="btn-inscrever" href="{% url 'criar_reserva' %}">RESERVAR AGORA</a> 
         </div>
     </header>
 
@@ -46,11 +48,11 @@
                     <div class="history">
                         <p>O restaurante de Benjamin Matos nasceu do sonho de transformar a paixão pela culinária em experiências únicas. Inspirado pelas receitas de família e pela tradição de reunir pessoas à mesa, Benjamin uniu ingredientes frescos e técnicas modernas para criar um espaço acolhedor. Hoje, seguimos celebrando a boa comida e a hospitalidade, fazendo de cada visita um momento especial.</p>
                         <div class="btn-reservar">
-                            <a href="#">FAÇA SUA RESERVA</a>
+                            <a href="{% url 'criar_reserva' %}">FAÇA SUA RESERVA</a>
                         </div>
                     </div>
                     <div class="intro-img">
-                        <img src="{% static 'media/image_13.png' %}" alt="Imagem do Restaurante" />
+                        <img src="{% static 'media/image 13.png' %}" alt="Imagem do Restaurante" />
                     </div>
                 </div>
             </div>

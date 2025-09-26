@@ -16,24 +16,24 @@
                 <img src="{% static 'media/logo_lobo.png' %}" alt="Logo">
             </a>
             <ul class="menu">
-                <li>{# <a href="{% url 'contato' %}">Fale Conosco</a> #}</li>
+                <li><a href="{% url 'fale_conosco' %}">Fale Conosco</a></li>
                 <li><a href="{% url 'executivo' %}">Cardápio</a></li>
                 <li><a href="{% url 'equipe' %}">Home</a></li>
                 <li><a href="{% url 'feedbacks' %}">Sobre nós</a></li>
                 <li><a href="{% url 'promocoes' %}">Promoções e eventos</a></li>
             </ul>
-            <a class="btn-inscrever" href="#">RESERVAR AGORA</a>  
+            <a class="btn-inscrever" href="{% url 'criar_reserva' %}">RESERVAR AGORA</a>  
             <button id="mobile_btn"><i class="fa-solid fa-bars"></i></button>  
         </nav>
         <div id="mobile_menu">
             <ul id="mobile_nav_list">
-                <li>{# <a href="{% url 'contato' %}">Fale Conosco</a> #}</li>
+                <li><a href="{% url 'fale_conosco' %}">Fale Conosco</a></li>
                 <li><a href="{% url 'executivo' %}">Cardápio</a></li>
                 <li><a href="{% url 'equipe' %}">Home</a></li>
                 <li><a href="{% url 'feedbacks' %}">Sobre nós</a></li>
                 <li><a href="{% url 'promocoes' %}">Promoções e eventos</a></li>
             </ul>
-            <a class="btn-inscrever" href="#">RESERVAR AGORA</a> 
+            <a class="btn-inscrever" href="{% url 'criar_reserva' %}">RESERVAR AGORA</a> 
         </div>
     </header>
     <div class="spacing"></div>
@@ -53,7 +53,7 @@
                             <h3>{{ promo.titulo }}</h3>
                         </div>
                         <p class="promo-text">{{ promo.descricao }}</p>
-                        <a class="contact" href="#">Contratar Agora</a>
+                        <a class="contact" href="{% url 'criar_reserva' %}">Contratar Agora</a>
                     </div>
                     {% empty %}
                         <p>Não há promoções disponíveis.</p>
@@ -70,7 +70,7 @@
                     <h2>Jantar Temático</h2>
                     <div class="bg-jantar">
                         <p>Uma experiência gastronômica temática, cuidadosamente personalizada de acordo com suas preferências.</p>
-                        <a href="#">Contratar Agora</a>
+                        <a href="{% url 'criar_reserva' %}">Contratar Agora</a>
                     </div>
                 </div>
             </div>

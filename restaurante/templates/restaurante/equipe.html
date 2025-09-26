@@ -1,22 +1,187 @@
+{% load static %}
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Nossa Equipe</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="{% static 'styles/styles_page/styles_page.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/styles_page/header_page.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/styles_page/home_page.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/styles_page/carrossel.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/styles_page/especialidades.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/styles_page/equipe.css' %}">
+    <title>Cozinha Lobo</title>
 </head>
 <body>
-    <h1>Nossa Equipe</h1>
-    <div style="display: flex; flex-wrap: wrap; gap: 24px;">
-        {% for pessoa in equipe %}
-            <div style="border: 1px solid #ddd; padding: 16px; text-align: center;">
-                {% if pessoa.foto %}
-                    <img src="{{ pessoa.foto.url }}" alt="{{ pessoa.nome }}" style="max-width:120px; border-radius: 50%;">
-                {% endif %}
-                <p>{{ pessoa.nome }}</p>
-            </div>
+    <header>
+        <nav id="navbar">
+            <a href="{% url 'equipe' %}" class="logo">
+                <img src="{% static 'media/lobo.png' %}" alt="Logo">
+            </a>
+            <ul class="menu">
+                <li><a href="{% url 'fale_conosco' %}">Fale Conosco</a></li>
+                <li><a href="{% url 'executivo' %}">Cardápio</a></li>
+                <li><a href="{% url 'equipe' %}">Home</a></li>
+                <li><a href="{% url 'feedbacks' %}">Sobre nós</a></li>
+                <li><a href="{% url 'promocoes' %}">Promoções e eventos</a></li>
+            </ul>
+            <a class="btn-inscrever" href="{% url 'criar_reserva' %}">RESERVAR AGORA</a> 
+            
+            <button id="mobile_btn">
+                <i class="fa-solid fa-bars"></i>
+            </button>  
+        </nav>
+        <div id="mobile_menu">
+            <ul id="mobile_nav_list">
+                <li><a href="{% url 'fale_conosco' %}">Fale Conosco</a></li>
+                <li><a href="{% url 'executivo' %}">Cardápio</a></li>
+                <li><a href="{% url 'equipe' %}">Home</a></li>
+                <li><a href="{% url 'feedbacks' %}">Sobre nós</a></li>
+                <li><a href="{% url 'promocoes' %}">Promoções e eventos</a></li>
+            </ul>
+            <a class="btn-inscrever" href="{% url 'criar_reserva' %}">RESERVAR AGORA</a> 
+        </div>
+    </header>
+
+    <div class="spacing"></div>
+
+     <section class="home-section">
+        <div class="home">
+            <h3>Chef. Benjamin Matos</h3>
+            <h1>Muito mais que uma Experiência Gastronômica</h1>
+            <a href="{% url 'criar_reserva' %}">RESERVAR AGORA</a>
+        </div>
+        <div class="img-onda"></div>
+    </section>
+
+    <section class="section-carrossel">
+        <div class="carrossel-container">
+            <button id="prev-btn-1" class="arrow"><img src="{% static 'media/seta_esquerda.png' %}" alt=""></button>
+            <div class="slider-content">
+    <div class="slider" id="track-1">
+        {% for item in itens %}
+        <div class="slide-item {% if forloop.first %}active{% endif %}">
+            {% if item.foto %}
+                <img src="{{ item.foto.url }}" alt="{{ item.titulo }}">
+            {% else %}
+                <img src="{% static 'media/placeholder.png' %}" alt="sem imagem">
+            {% endif %}
+            <h3>{{ item.titulo }}</h3>
+        </div>
         {% empty %}
-            <p>Nenhum membro cadastrado.</p>
+            <p>Não há itens cadastrados no cardápio.</p>
         {% endfor %}
     </div>
+</div>
+            <button id="next-btn-1" class="arrow"><img src="{% static 'media/seta_direita.png' %}" alt=""></button>
+        </div>
+        <div class="ver-mais">
+           <a href="{% url 'cardapio' %}">Ver Mais</a>
+        </div>
+    </section>
+
+    <div class="spacing"></div>
+
+    <section class="section-carrossel">
+        <div class="carrossel-container">
+            <button id="prev-btn-2" class="arrow"><img src="{% static 'media/seta_esquerda.png' %}" alt=""></button>
+            <div class="slider-content">
+                <div class="slider" id="track-2">
+                    <div class="slide-1 slide-item">
+                        <img src="{% static 'media/reserva.png' %}" alt="">
+                        <h3>Reservas</h3>
+                    </div>
+                    <div class="slide-2 slide-item">
+                        <img src="{% static 'media/happy-hour.png' %}" alt="">
+                        <h3>Happy Hour</h3>
+                    </div>
+                    <div class="slide-main slide-item active">
+                        <img src="{% static 'media/vinho-quinta.png' %}" alt="">
+                        <h3>Quinta do Vinho</h3>
+                    </div>
+                    <div class="slide-2 slide-item">
+                        <img src="{% static 'media/50-off.png' %}" alt="">
+                        <h3>50% DAY OFF</h3>
+                    </div>
+                    <div class="slide-1 slide-item">
+                        <img src="{% static 'media/jantar-tema.png' %}" alt="">
+                        <h3>Jantar Temático</h3>
+                    </div>
+                </div>
+            </div>
+            <button id="next-btn-2" class="arrow"><img src="{% static 'media/seta_direita.png' %}" alt=""></button>
+        </div>
+        <div class="ver-mais">
+            <a href="{% url 'promocoes' %}">Ver Mais</a>
+        </div>
+    </section>
+
+    <div class="spacing"></div>
+
+    <section class="main-container text-h2">
+        <h2><span class="sublinhado">Especialidades</span></h2>
+        <div class="grid-esp">
+            <div class="grid-item grid-span">
+                <img src="{% static 'media/Rectangle 631.png' %}" alt="Pizza artesanal">
+            </div>
+            <div class="grid-item">
+                <img src="{% static 'media/Rectangle 633.png' %}" alt="">
+            </div>
+            <div class="grid-item grid-card-3 grid-card">
+                <h3>RESERVAS</h3>
+                <p>Rua Ali Perto, 89 - Barra da Tijuca - Rio de Janeiro/RJ <br><br> Terças a Domingos <br> 19h às 23h</p>
+                <a href="{% url 'criar_reserva' %}#">Reservar Agora</a>
+            </div>
+            <div class="grid-item grid-card grid-card-4">
+                <h3>PERSONAL CHEF</h3>
+                <p>Desde jantares íntimos até celebrações especiais, nosso personal chef proporcionará uma experiência culinária exclusiva e sob medida.</p>
+                <a href="{% url 'cardapio' %}#">Ver Mais</a>
+            </div>
+            <div class="grid-item grid-card grid-card-5">
+                <h3>JANTAR TEMÁTICO</h3>
+                <p>Uma experiência gastronômica temática, cuidadosamente personalizada de acordo com suas preferências.</p>
+                <a href="{% url 'promocoes' %}#">Ver Mais</a>
+            </div>
+            <div class="grid-item grid-card grid-card-6">
+                <h3>BUFFET</h3>
+                <p>De acordo com suas preferências, você terá uma experiência gastronômica que surpreenderá e encantará seus convidados.</p>
+                <a href="{% url 'criar_reserva' %}#">Ver Mais</a>
+            </div>
+            <div class="grid-item grid-span">
+                <img src="{% static 'media/Rectangle 632.png' %}" alt="Bruschetta com romã">
+            </div>
+        </div>
+    </section>
+      
+    <div class="spacing"></div>
+
+    <section class="main-container text-h2">
+    <h2><span class="sublinhado">Nossa equipe</span></h2>
+    <div class="grid grid-3">
+        {% for func in equipe %}
+            <div class="equipe-item">
+                <div class="icon-bg">
+                    {% if func.foto %}
+                        <img class="equipe-icon" src="{{ func.foto.url }}" alt="Foto de {{ func.nome }}">
+                    {% else %}
+                        <img class="equipe-icon" src="{% static 'media/default_user.png' %}" alt="Sem foto">
+                    {% endif %}
+                </div>
+                <h3>{{ func.nome }}</h3>
+                {% if func.cargo %}
+                    <p>{{ func.cargo }}</p>
+                {% endif %}
+            </div>
+        {% empty %}
+            <p>Nenhum membro da equipe cadastrado.</p>
+        {% endfor %}
+    </div>
+</section>
+
+     <div class="spacing"></div>
+
+    <script src="{% static 'javascript/script.js' %}"></script>
 </body>
 </html>

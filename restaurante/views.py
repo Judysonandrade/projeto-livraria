@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from datetime import datetime
 from .models import PromocaoEvento, CardapioItem, Funcionario, FeedbackCliente, Reserva, FaleConosco, Especialidades
+from rest_framework.response import Response
+from rest_framework.decorators import api_view
 
 def promocoes(request):
     dados = PromocaoEvento.objects.all()
@@ -12,7 +14,15 @@ def cardapio(request):
 
 def equipe(request):
     equipe = Funcionario.objects.all()
-    return render(request, 'restaurante/equipe.html', {'equipe': equipe})
+    dados = PromocaoEvento.objects.all()
+    itens = CardapioItem.objects.all()  
+    
+    return render(request, 'restaurante/equipe.html', {
+        'equipe': equipe,
+        'dados': dados,
+        'itens': itens,  
+    })
+
 
 def feedbacks(request):
     feedbacks = FeedbackCliente.objects.all()
@@ -22,9 +32,7 @@ def criar_reserva(request):
     if request.method == "POST":
         try:
             datetime_str = request.POST.get('data_reserva') 
-
             dt_obj = datetime.strptime(datetime_str, "%Y-%m-%dT%H:%M")
-
             data = dt_obj.date()
             hora = dt_obj.time()
 
@@ -48,7 +56,6 @@ def criar_reserva(request):
         'mensagem': mensagem
     })
  
-
 def fale_conosco(request):
     mensagem = None
     if request.method == "POST":
