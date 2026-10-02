@@ -1,0 +1,263 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #ffffff;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.navbar {
+    background-color: #4a2c1a; 
+    color: #fff;
+    padding: 15px 0;
+    border-bottom: 1px solid #5a3c2a;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .logo img {
+    height: 50px; 
+}
+
+.navbar nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.navbar nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 5px 10px;
+    transition: background-color 0.3s;
+}
+
+.navbar nav ul li a:hover {
+    background-color: #5a3c2a;
+    border-radius: 5px;
+}
+
+.btn-reservar {
+    background-color: #f0ead6;
+    color: #4a2c1a;
+    padding: 12px 25px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 25px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-reservar:hover {
+    background-color: #dcd0b3;
+}
+
+.menu-executivo {
+    padding: 60px 0;
+    text-align: center;
+}
+
+.menu-executivo h1 {
+    font-size: 2.5rem;
+    color: #4a2c1a;
+    margin-bottom: 10px;
+    position: relative; 
+    display: inline-block; 
+    padding-bottom: 5px; 
+}
+
+
+.menu-executivo h1::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 14%;
+    transform: translateX(-50%); 
+    width: 88px; 
+    height: 5px; 
+    background-color: #4a2c1a; 
+}
+
+.menu-executivo .subtitulo {
+    font-size: 1.1rem;
+    color: #4a2c1a;
+    margin-bottom: 50px;
+}
+
+.secao-pratos {
+    margin-bottom: 60px;
+}
+
+.secao-pratos h2 {
+    display: flex; 
+    align-items: center; 
+    text-align: center;
+    color: #4a2c1a; 
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin: 60px 0 40px; 
+}
+
+.secao-pratos h2::before,
+.secao-pratos h2::after {
+    content: ''; 
+    flex: 1; 
+    height: 2px; 
+    background-color: #6e4a2e; 
+}
+
+.secao-pratos h2::before {
+    margin-right: 20px; 
+}
+
+.secao-pratos h2::after {
+    margin-left: 20px; 
+}
+
+
+.pratos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    text-align: left;
+}
+
+.prato-card {
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.prato-card img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1.5 / 1; 
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.prato-card h3 {
+    font-size: 1.1rem;
+    color: #4a2c1a;
+    margin-bottom: 10px;
+}
+
+.prato-card p {
+    font-size: 0.9rem;
+    color: black;
+    line-height: 1.6;
+}
+
+/* Responsividade */
+@media (max-width: 992px) {
+    .pratos-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar .container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .navbar nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+    
+    .pratos-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .prato-card {
+        text-align: center;
+    }
+}
+
+.criacoes-exclusivas {
+    background-color: #fff; 
+    padding: 80px 0;
+}
+
+.criacoes-exclusivas .grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 60px; 
+    align-items: center; 
+}
+
+.criacoes-exclusivas .imagem-coluna img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px; 
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); 
+}
+
+.criacoes-exclusivas .texto-coluna h2 {
+    font-size: 2.8rem;
+    color: #4a2c1a;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.criacoes-exclusivas .texto-coluna .subtitulo-secao {
+    font-size: 1.2rem;
+    color: #8a6d4f;
+    margin-bottom: 25px;
+}
+
+.criacoes-exclusivas .texto-coluna p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: black;
+    margin-bottom: 35px;
+}
+
+.criacoes-exclusivas .btn-principal {
+    background-color: #4a2c1a;
+    color: #fff;
+    padding: 16px 35px;
+    border-radius: 50px; 
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    display: inline-block;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.criacoes-exclusivas .btn-principal:hover {
+    background-color: #382113;
+    transform: translateY(-3px); 
+}
+
+
+
+@media (max-width: 992px) {
+    .criacoes-exclusivas .grid-container {
+        grid-template-columns: 1fr; /* O layout passa a ter uma única coluna */
+        gap: 40px;
+    }
+
+    .criacoes-exclusivas .texto-coluna {
+        text-align: center; /* Centraliza o texto em telas menores */
+    }
+}

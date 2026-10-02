@@ -1,0 +1,157 @@
+/* ------> SEÇÃO 3 <----- */
+
+#container-books {
+    display: flex;
+    width: 100%;
+    min-height: 784px;
+    align-items: center;
+    justify-content: space-between; 
+    text-align: center;
+    margin: 0 auto;
+    position: relative;
+}
+
+#container-books::before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, #1b4271f1 100%);
+    overflow: visible;
+    position: absolute;
+    z-index: 1;
+}
+.bg-books {
+    background: linear-gradient(to right, #2C6FB3, #0E2646);
+}
+
+#books-title {
+    display: flex;
+    max-width: 446px;
+    justify-content: start;
+    text-align: center;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+    margin-left: 154px;
+    margin-right: 183px;
+}
+
+#books-title h2 {
+    text-align: left;
+    font-size: 64px;
+    font-weight: bold;
+    color: #FFFFFF;
+    
+}
+
+.sublinhado {
+  position: relative; 
+  display: inline-block;
+}
+
+.sublinhado::after {
+  content: ''; 
+  position: absolute; 
+  width: 92%; 
+  height: 8px; 
+  background-color: #0E2646;
+  bottom: 8px; 
+  left: 15px;
+}
+
+#books {
+    display: flex;  
+    overflow-x: hidden;
+    position: relative;
+        
+}
+
+.phone-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+ .img-celular{
+    display: block;
+    z-index: 2;
+    position: absolute;
+    width: 353px;
+    height: 670px;
+    margin-left: 54px;
+    
+}
+
+#ver-mais-link {
+    position: absolute;
+    bottom: 90px;
+    right: 130px; 
+    z-index: 4;
+    display: flex;
+    align-items: center;
+}
+
+#ver-mais-link a {
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: bold;
+    color: #DBDBDB;
+    margin-right: 10px;
+}
+
+
+
+@media (max-width: 1020px) {
+    #container-books {
+        flex-direction: column; 
+        min-height: auto; 
+        padding: 64px 16px; 
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+    
+    }
+
+    #books-title {
+        text-align: center;
+        justify-content: center;
+        margin-bottom: 32px;
+        margin-left: 176px;
+        align-items: center;
+    }
+
+    #books-title h2 {
+        font-size: 32px; 
+        text-align: center;
+        min-width: 300px;
+        height: 100%;
+    }
+
+    .sublinhado::after {
+        height: 5px;
+        bottom: 5px; 
+        left: 8px;
+    }
+
+    #books {
+        display: none;
+    }
+
+    .img-celular {
+        position: relative; 
+        width: 80%; 
+        max-width: 280px;
+        height: auto; 
+        margin: 0 auto;
+        z-index: 3;
+    }
+
+    #ver-mais-link {
+        position: relative; 
+        bottom: auto; 
+        right: auto;
+        margin-top: 32px; 
+        justify-content: center;
+    
+    }
+}

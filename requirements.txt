@@ -126,3 +126,4 @@ webcolors==25.10.0
 webencodings==0.6.1
 websocket-client==1.9.2
 websockets==16.1.1
+whitenoise==6.12.0
